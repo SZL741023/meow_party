@@ -6,18 +6,33 @@
 // Color system
 
 // scss-docs-start gray-color-variables
+// $white: #fff !default;
+// $gray-100: #f8f9fa !default;
+// $gray-200: #e9ecef !default;
+// $gray-300: #dee2e6 !default;
+// $gray-400: #ced4da !default;
+// $gray-500: #adb5bd !default;
+// $gray-600: #6c757d !default;
+// $gray-700: #495057 !default;
+// $gray-800: #343a40 !default;
+// $gray-900: #212529 !default;
+// $black: #000 !default;
+// scss-docs-end gray-color-variables
+
+// 😻meow-party scss-docs-start gray-color-variables
 $white: #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
+$gray-100: #EFEFEF !default;
+$gray-200: #D6D4D2 !default;
+$gray-300: #9F9A92 !default;
+$gray-400: #736C63 !default;
+//500-900沒用到
 $gray-500: #adb5bd !default;
 $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black: #000 !default;
-// scss-docs-end gray-color-variables
+$black: #3C3936 !default;
+// 😻meow-party scss-docs-end gray-color-variables
 
 // fusv-disable
 // scss-docs-start gray-colors-map
@@ -309,10 +324,46 @@ $light: $gray-100 !default;
 $dark: $gray-900 !default;
 // scss-docs-end theme-color-variables
 
+// 😻meow-party-start theme-color-variables
+$primary-default:    #FFBC46;
+$primary-light:      #FEEA80;
+$primary-pestel:     #FFF7EA;
+$secondary-default:  #3A200B;
+$secondary-light:    #CEC2B2;
+$accessory-pink:     #FFC7C3;
+$accessory-blue:     #B3D7F5;
+$accessory-orange:   #FFC799;
+$accessory-water:    #5BD3DF;
+$neutral-white:      #FFFDFA;
+// 😻meow-party-end theme-color-variables
+
 // scss-docs-start theme-colors-map
+// $theme-colors: (
+//   "primary": $primary,
+//   "secondary": $secondary,
+//   "success": $success,
+//   "info": $info,
+//   "warning": $warning,
+//   "danger": $danger,
+//   "light": $light,
+//   "dark": $dark,
+// ) !default;
+// scss-docs-end theme-colors-map
+
+// 😻meow-party-start theme-colors-map
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
+  "primary": $primary-default,
+  "primary-light": $primary-light,
+  "primary-pestel": $primary-pestel,
+  "secondary": $secondary-default,
+  "secondary-light": $secondary-light,
+  "accessory-pink": $accessory-pink,
+  "accessory-blue": $accessory-blue,
+  "accessory-orange": $accessory-orange,
+  "accessory-water": $accessory-water,
+  "neutral-white": $neutral-white,
+  // "primary": $primary,
+  // "secondary": $secondary,
   "success": $success,
   "info": $info,
   "warning": $warning,
@@ -320,7 +371,7 @@ $theme-colors: (
   "light": $light,
   "dark": $dark,
 ) !default;
-// scss-docs-end theme-colors-map
+// 😻meow-party-end theme-colors-map
 
 // scss-docs-start theme-text-variables
 $primary-text-emphasis: shade-color($primary, 60%) !default;
