@@ -1,22 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import productImage1 from '../assets/image/product1.png';
+import productImage2 from '../assets/image/product2.png';
+import productImage3 from '../assets/image/product3.png';
 
-function ProductPage() {
+function Product() {
   const [quantity, setQuantity] = useState(1);
-  const [product, setProduct] = useState(null);
-
-  // 取得商品資料
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const response = await fetch('https://ec-course-api.hexschool.io/v2/api/meow_party/product/-OFqvBDToHOf7y7lRZBz');
-      const data = await response.json();
-      if (data.success) {
-        setProduct(data.product);
-      }
-    };
-
-    fetchProduct();
-  }, []);
 
   const handleQuantityChange = (event) => {
     setQuantity(parseInt(event.target.value));
@@ -40,21 +29,12 @@ function ProductPage() {
     ref.current.scrollIntoView({ behavior: 'smooth' });
   };
 
-  if (!product) {
-    return <p>Loading...</p>;
-  }
-
-  // 設定圖片
-  const productImage1 = product.imageUrl;
-  const productImage2 = product.imagesUrl[0] || productImage1;  // 如果第二張圖片不存在，顯示第一張圖片
-  const productImage3 = product.imagesUrl[1] || productImage2;  // 如果第三張圖片不存在，顯示第二張圖片
-
   return (
     <>
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-6">
-            <img src={productImage1} className="img-fluid mb-3" alt="產品圖片" />
+            <img src={productImage1} className="img-fluid mb-3" alt="鮮嫩雞肉餐罐" />
             <div className="row">
               <div className="col-3">
                 <img src={productImage1} className="img-fluid" alt="縮圖 1" />
@@ -69,9 +49,10 @@ function ProductPage() {
           </div>
           <div className="col-md-6">
             <div className="d-flex justify-content-between align-items-center">
-              <h2>{product.title}</h2>
+              <h2>鮮嫩雞肉餐罐</h2>
+              <i className="bi bi-heart"></i> {/* 愛心圖示，需要引入 Bootstrap Icons */}
             </div>
-            <p style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>NT$ {product.price} - NT$ {product.origin_price}</p>
+            <p style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>NT$ 60 - NT$ 720</p>
 
             <div className="mb-3">
               <label htmlFor="size" className="form-label">規格</label>
@@ -114,14 +95,36 @@ function ProductPage() {
 
           {/* 產品特色 */}
           <div ref={featuresRef} className="mt-4">
-            <p className="fw-bold">{product.description}</p>
+            <div className="mb-3">
+              <h5 className="fw-bold">嚴選新鮮雞肉</h5>
+              <p className="lead">採用高品質雞胸肉，低脂肪、高蛋白，滿足貓咪每日營養所需。</p>
+            </div>
+            <div className="mb-3">
+              <h5 className="fw-bold">無添加劑，純天然好滋味</h5>
+              <p className="lead">無防腐劑、人工色素及香料，守護毛孩健康，每一口都安心。</p>
+            </div>
+            <div className="mb-3">
+              <h5 className="fw-bold">多汁口感，滿足挑嘴貓</h5>
+              <p className="lead">保留雞肉天然鮮嫩口感與湯汁，增加食慾，讓貓咪一口接一口。</p>
+            </div>
+            <div className="mb-3">
+              <h5 className="fw-bold">營養均衡</h5>
+              <p className="lead">添加必要的維生素與礦物質，補充日常活力，呵護貓咪健康成長。</p>
+            </div>
+            <div className="mb-3">
+              <h5 className="fw-bold">單一蛋白質來源</h5>
+              <p className="lead">適合敏感體質貓咪，減少過敏風險，是毛孩的最佳營養選擇。</p>
+            </div>
           </div>
 
           <div style={{ borderBottom: '1px dashed #ccc', margin: '20px 0' }}></div>
 
           {/* 產品說明 */}
           <div ref={descriptionRef} className="mt-4">
-            <p className="fw-bold">{product.content}</p>
+            <p className="fw-bold">「鮮嫩雞肉餐罐」特別為您的貓咪設計，選用新鮮雞胸肉，經低溫慢煮保留食材鮮甜，質地軟嫩且多汁，讓貓咪無法抗拒的美味。單純無添加配方，適合每日主食或當作零食獎勵。豐富的蛋白質與營養元素，支持貓咪肌肉生長與健康免疫力，陪伴毛孩快樂成長！</p>
+            <p>適合對象：全齡貓適用，特別適合挑嘴或消化敏感的貓咪。</p>
+            <p>容量：80g/罐</p>
+            <p>成分：雞胸肉、雞湯、維生素、礦物質</p>
           </div>
 
           <div style={{ borderBottom: '1px dashed #ccc', margin: '20px 0' }}></div>
@@ -227,5 +230,5 @@ function ProductPage() {
   );
 }
 
-export default ProductPage;
+export default Product;
 
