@@ -196,7 +196,7 @@ function Product() {
               <div className="d-flex align-items-center mb-2">
                 <span>★★★★★</span>
               </div>
-              <p className="lead">家裡的挑嘴貓咪終於找到愛吃的罐頭了!鮮嫩多汁,光是打開罐頭香味就讓牠迫不及待開動了!</p>
+              <p>家裡的挑嘴貓咪終於找到愛吃的罐頭了!鮮嫩多汁,光是打開罐頭香味就讓牠迫不及待開動了!</p>
             </div>
 
             <div className="mb-4">
@@ -204,7 +204,7 @@ function Product() {
               <div className="d-flex align-items-center mb-2">
                 <span>★★★★★</span>
               </div>
-              <p className="lead">我家貓咪體質敏感,很難找到合適的主食罐,但這款雞肉餐罐完全沒問題!毛孩吃得開心,我也安心。</p>
+              <p>我家貓咪體質敏感,很難找到合適的主食罐,但這款雞肉餐罐完全沒問題!毛孩吃得開心,我也安心。</p>
             </div>
 
             <div className="mb-4">
@@ -212,7 +212,7 @@ function Product() {
               <div className="d-flex align-items-center mb-2">
                 <span>★★★★★</span>
               </div>
-              <p className="lead">這款罐頭不僅有新鮮雞肉,還沒有奇怪的添加物,真的是毛孩健康的好選擇,每天吃得津津有味!</p>
+              <p>這款罐頭不僅有新鮮雞肉,還沒有奇怪的添加物,真的是毛孩健康的好選擇,每天吃得津津有味!</p>
             </div>
 
             <div className="mb-4">
@@ -220,7 +220,7 @@ function Product() {
               <div className="d-flex align-items-center mb-2">
                 <span>★★★★★</span>
               </div>
-              <p className="lead">質地軟嫩又多湯汁,我家年紀大的貓咪也吃得很輕鬆,非常推薦這款罐頭!</p>
+              <p>質地軟嫩又多湯汁,我家年紀大的貓咪也吃得很輕鬆,非常推薦這款罐頭!</p>
             </div>
           </div>
 
