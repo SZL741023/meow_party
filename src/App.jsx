@@ -1,13 +1,14 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
+      {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -27,7 +28,8 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <button className="btn btn-primary" type="button"></button>
+      <button className="btn btn-primary" type="button"></button> */}
+      <ProductPage />
     </>
   );
 }
