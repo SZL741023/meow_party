@@ -21,17 +21,17 @@
 
 // 😻meow-party scss-docs-start gray-color-variables
 $white: #fff !default;
-$gray-100: #EFEFEF !default;
-$gray-200: #D6D4D2 !default;
-$gray-300: #9F9A92 !default;
-$gray-400: #736C63 !default;
+$gray-100: #efefef !default;
+$gray-200: #d6d4d2 !default;
+$gray-300: #9f9a92 !default;
+$gray-400: #736c63 !default;
 //500-900沒用到
 $gray-500: #adb5bd !default;
 $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black: #3C3936 !default;
+$black: #3c3936 !default;
 // 😻meow-party scss-docs-end gray-color-variables
 
 // fusv-disable
@@ -325,16 +325,16 @@ $dark: $gray-900 !default;
 // scss-docs-end theme-color-variables
 
 // 😻meow-party-start theme-color-variables
-$primary-default:    #FFBC46;
-$primary-light:      #FEEA80;
-$primary-pestel:     #FFF7EA;
-$secondary-default:  #3A200B;
-$secondary-light:    #CEC2B2;
-$accessory-pink:     #FFC7C3;
-$accessory-blue:     #B3D7F5;
-$accessory-orange:   #FFC799;
-$accessory-water:    #5BD3DF;
-$neutral-white:      #FFFDFA;
+$primary-default: #ffbc46;
+$primary-light: #feea80;
+$primary-pestel: #fff7ea;
+$secondary-default: #3a200b;
+$secondary-light: #cec2b2;
+$accessory-pink: #ffc7c3;
+$accessory-blue: #b3d7f5;
+$accessory-orange: #ffc799;
+$accessory-water: #5bd3df;
+$neutral-white: #fffdfa;
 // 😻meow-party-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -464,15 +464,53 @@ $gradient: linear-gradient(
 
 // scss-docs-start spacer-variables-maps
 $spacer: 1rem !default;
+// $spacers: (
+//   0: 0,
+//   1: $spacer * 0.25,
+//   2: $spacer * 0.5,
+//   3: $spacer,
+//   4: $spacer * 1.5,
+//   5: $spacer * 3,
+// ) !default;
+
+// scss-docs-end spacer-variables-maps
+
+// 😻meow-party scss-docs-start spacer-variables
 $spacers: (
   0: 0,
   1: $spacer * 0.25,
   2: $spacer * 0.5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
+  3: $spacer * 0.75,
+  4: $spacer,
+  5: $spacer * 1.25,
+  6: $spacer * 1.5,
+  7: $spacer * 1.75,
+  8: $spacer * 2,
+  9: $spacer * 2.25,
+  10: $spacer * 2.5,
+  11: $spacer * 2.75,
+  12: $spacer * 3,
+  13: $spacer * 3.25,
+  14: $spacer * 3.5,
+  15: $spacer * 3.75,
+  16: $spacer * 4,
+  17: $spacer * 4.25,
+  18: $spacer * 4.5,
+  19: $spacer * 4.75,
+  20: $spacer * 5,
+  // 80px
+  21: $spacer * 6,
+  // 96px
+  //以上是4的倍數
+  22: $spacer * 6.25,
+  // 100px
+  23: $spacer * 7,
+  // 112px
+  24: $spacer * 7.5,
+  // 120px
+  25: $spacer * 10, // 160px
 ) !default;
-// scss-docs-end spacer-variables-maps
+// 😻meow-party scss-docs-end spacer-variables
 
 // Position
 //
