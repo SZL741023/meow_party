@@ -1,5 +1,5 @@
 import { createHashRouter } from "react-router-dom";
-import { Home, ProductPage, Cart } from "../pages";
+import { Home, ProductPage, Cart, Test } from "../pages";
 import App from "../App.jsx";
 
 const routes = [
