@@ -1,5 +1,5 @@
 import { createHashRouter } from "react-router-dom";
-import { Home, ProductPage, CartTest } from "../pages";
+import { Home, ProductPage, CartTest, Test } from "../pages";
 import App from "../App.jsx";
 
 const routes = [
@@ -18,6 +18,10 @@ const routes = [
       {
         path: "cart",
         element: <CartTest />,
+      },
+      {
+        path: "test",
+        element: <Test />,
       },
     ],
   },

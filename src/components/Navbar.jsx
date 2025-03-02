@@ -1,5 +1,12 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getProductsDataAsync } from "../slice/productSlice";
 import { Link } from "react-router-dom";
 function Navbar() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProductsDataAsync());
+  }, []);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -35,9 +42,9 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
+              <Link className="nav-link" to="/test">
+                test
+              </Link>
             </li>
           </ul>
         </div>
