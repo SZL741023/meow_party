@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
+
+import Input from '../components/Input';
 
 function Cart(){
 
@@ -64,6 +67,51 @@ function Cart(){
       console.log(error)
     }
   }
+
+  const order = async(receiver, email, tel, address, invoice, payment, message) => {
+    try {
+      await axios.post(`https://ec-course-api.hexschool.io/v2/api/meow_party/order`, {
+        "data": {
+          "user": {
+            "name": receiver,
+            "email": email,
+            "tel": tel,
+            "address": address,
+            "invoice": invoice
+          },
+          "payment": payment,
+          "message": message
+        }
+      })
+      console.log('已送出訂單')
+      nextStep();
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: {errors}
+  } = useForm({
+    mode: 'onTouched'
+  });
+
+  const onSubmit = async(data) => {
+    const {receiver, email, tel, address, invoice, payment, message} = data
+    order(receiver, email, tel, address, invoice, payment, message)
+  }
+
+  // const watchForm = useWatch({
+  //   control
+  // })
+  // useEffect(() => {
+  //   console.log(watchForm)
+  // },[watchForm])
+
 
   return (
     <>
@@ -171,7 +219,7 @@ function Cart(){
                     <p className="ms-auto">NT $ {finalTotal}</p>
                   </div>
                 </div>
-                <button type="button" className="btn btn-primary w-100" onClick={nextStep}>下一步</button>
+                <button type="button" className="btn btn-primary w-100" onClick={nextStep}>前往結帳</button>
               </div>
             </div>
           )
@@ -182,71 +230,100 @@ function Cart(){
           step === 2 && (
             <div className="row justify-content-center">
               <div className="col-md-6">
-                <form action="" className="mb-5">
-                  <h2 className="fs-5 fw-bold text-secondary">收件人資訊</h2>
-                  <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label">姓名</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">連絡電話</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">收件地址</label>
-                    <div className="d-flex gap-3">
-                      <select className="form-select" id="inputGroupSelect01">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <select className="form-select" id="inputGroupSelect01">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <input type="password" className="form-control" id="exampleInputPassword1" />
+                <form action="" className="mb-5" onSubmit={handleSubmit(onSubmit)}>
+                  <div className="mb-10">
+                    <h2 className="fs-5 fw-bold text-secondary">收件人資訊</h2>
+                    <Input
+                      register={register}
+                      errors={errors}
+                      id='receiver'
+                      type='text'
+                      labelText='姓名'
+                      rules={{
+                        required: {
+                          value: true,
+                          message: '必填'
+                        },
+                        maxLength: {
+                          value: 20,
+                          message: '姓名不可超過20個字元'
+                        }
+                      }}
+                    ></Input>
+
+                    <Input
+                      register={register}
+                      errors={errors}
+                      id='email'
+                      type='email'
+                      labelText='Email'
+                      rules={{
+                        required: {
+                          value: true,
+                          message: '必填'
+                        },
+                        pattern: {
+                          value: /^\S+@\S+$/i,
+                          message: 'email格式錯誤'
+                        }
+                      }}
+                    ></Input>
+
+                    <Input
+                      register={register}
+                      errors={errors}
+                      id='tel'
+                      type='tel'
+                      labelText='連絡電話'
+                      rules={{
+                        required: {
+                          value: true,
+                          message: '必填'
+                        },
+                        maxLength: {
+                          value: 10,
+                          message: '電話不可大於10碼'
+                        }
+                      }}
+                    ></Input>
+
+                    <Input
+                      register={register}
+                      errors={errors}
+                      id='address'
+                      type='text'
+                      labelText='收件地址'
+                      rules={{
+                        required: {
+                          value: true,
+                          message: '必填'
+                        }
+                      }}
+                    ></Input>
+                    
+                    <div className="mb-3">
+                      <label htmlFor="invoice" className="form-label">手機條碼載具</label>
+                      <input type="text" className="form-control" id="invoice" name="invoice" {...register('invoice')} />
+                      <p className="form-text">*手機條碼載具總長度為8碼，第1碼必為「/」半形</p>
                     </div>
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">發票類型</label>
-                    <div className="d-flex gap-3">
-                      <select className="form-select" id="inputGroupSelect01">
-                        <option selected>電子發票 - 個人</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+
+                    <div className="mb-3">
+                      <label htmlFor="payment" className="form-label">付款方式</label>
+                      <select name="payment" id="payment" className="form-select">
+                        <option value="credit">信用卡</option>
+                        <option value="linepay">LINE PAY</option>
+                        <option value="jkopay">街口支付</option>
+                        <option value="cash">貨到付款</option>
                       </select>
-                      <input type="password" className="form-control" id="exampleInputPassword1" />
                     </div>
-                  </div>
-                  <h2 className="fs-5 fw-bold text-secondary">信用卡資訊</h2>
-                  <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">卡號</label>
-                    <div className="input-group gap-3">
-                      <input type="text" className="form-control" id="exampleInputPassword1" />
-                      <input type="text" className="form-control" id="exampleInputPassword1" />
-                      <input type="text" className="form-control" id="exampleInputPassword1" />
-                      <input type="text" className="form-control" id="exampleInputPassword1" />
+                    <div className="mb-3">
+                      <label htmlFor="message" className="form-label">備註</label>
+                      <textarea className="form-control" id="message" rows="5" {...register('message')}></textarea>
                     </div>
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">持卡人姓名</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">卡片有效期</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">安全碼</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                   </div>
                   <div className="d-flex align-items-center justify-content-center gap-3">
-                    <button type="button" className="btn btn-outline-secondary" onClick={prevStep}>上一步</button>
-                    <button type="submit" className="btn btn-primary" onClick={nextStep}>確認結帳</button>
+                    {/* <button type="button" className="btn btn-outline-secondary" onClick={prevStep}>上一步</button> */}
+                    <button type="submit" className="btn btn-primary w-100">確認結帳</button>
                   </div>
                 </form>
               </div>
