@@ -149,10 +149,10 @@ function Cart(){
         {/* 確認購物車 */}
         {
           step === 1 && (
-            <div className="row">
+            <div className="row cart-card-shadow">
               <div className="col-md-8">
                 <div className="d-flex flex-column gap-3">
-                  <div className="cart-check border px-4 py-3 rounded-2">
+                  <div className="cart-check px-4 py-3 rounded-2 bg-white">
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" id="checkAll" defaultChecked/>
                       <label className="form-check-label" htmlFor="checkAll">全選</label>
@@ -161,12 +161,12 @@ function Cart(){
                   {/* 商品卡片 */}
                   {cartProducts.map(item => {
                     return (
-                      <div className="cart-card d-flex border align-items-center gap-4 p-4 rounded-2" key={item.product.id}>
+                      <div className="cart-item d-flex bg-white align-items-center gap-4 p-4 rounded-4" key={item.product.id}>
                         <div className="form-check">
                           <input className="form-check-input" type="checkbox" defaultChecked/>
                         </div>
                         <img width={160} height={120} className="rounded object-fit-cover" src={item.product.imageUrl} alt={item.product.title} />
-                        <div>
+                        <div style={{width:'238px'}}>
                           <h3 className="fs-6 fw-bold text-secondary">{item.product.title}</h3>
                           <select className="form-select" aria-label="Default select example">
                             <option value="1">組合三件組</option>
@@ -178,10 +178,10 @@ function Cart(){
                           <p className="text-primary mb-0">NT$ {item.product.price}</p>
                           <p className="text-gray-300 mb-0"><del>NT$ {item.product.origin_price}</del></p>
                         </div>
-                        <div className="input-group" style={{width: '137px'}}>
-                          <button className="btn btn-outline-secondary" type="button" onClick={()=> updateQty(item.id,item.product.id, item.qty - 1)}>-</button>
-                          <input type="text" className="form-control text-center" placeholder={item.qty} readOnly />
-                          <button className="btn btn-outline-secondary" type="button" onClick={()=> updateQty(item.id,item.product.id, item.qty + 1)}>+</button>
+                        <div className="input-group" style={{width: '137px', height: '48px'}}>
+                          <button className="btn bg-gray-100 rounded-start-circle d-flex align-items-center" type="button" onClick={()=> updateQty(item.id,item.product.id, item.qty - 1)}><span className="material-symbols-rounded">remove</span></button>
+                          <input type="text" className="form-control text-center bg-gray-100 border-0" placeholder={item.qty} readOnly />
+                          <button className="btn bg-gray-100 rounded-end-circle d-flex align-items-center" type="button" onClick={()=> updateQty(item.id,item.product.id, item.qty + 1)}><span className="material-symbols-rounded">add</span></button>
                         </div>
                         <div className="remove-item">
                           <span className="material-symbols-rounded curser" role="button" onClick={()=> deleteCartItem(item.id)}>delete</span>
@@ -192,34 +192,36 @@ function Cart(){
                 </div>
               </div>
               <div className="col-md-4">
-                <div className="mb-3">
-                  <label htmlFor="exampleFormControlInput1" className="form-label">優惠碼</label>
-                  <input type="email" className="form-control mb-3 bg-neutral-white" id="exampleFormControlInput1" placeholder="輸入優惠碼" />
-                  <button type="button" className="btn btn-outline-primary w-100">套用優惠</button>
+                <div className="cart-cart-shadow p-6 bg-white rounded-4">
+                  <div className="mb-8">
+                    <label htmlFor="exampleFormControlInput1" className="form-label">優惠碼</label>
+                    <input type="email" className="form-control mb-3 bg-neutral-white" id="exampleFormControlInput1" placeholder="輸入優惠碼" />
+                    <button type="button" className="btn btn-outline-primary w-100">套用優惠</button>
+                  </div>
+                  <div>
+                    <h3 className="fs-6 fw-bold text-secondary mb-4">結帳金額</h3>
+                    <div className="d-flex">
+                      <p>商品總金額</p>
+                      <p className="ms-auto">NT $ {finalTotal}</p>
+                    </div>
+                    <div className="d-flex">
+                      <p>折扣金額</p>
+                      <p className="ms-auto text-primary">NT $ 0</p>
+                    </div>
+                    <div className="d-flex">
+                      <p>優惠碼</p>
+                      <p className="ms-auto text-primary">NT $ 0</p>
+                    </div>
+                  </div>
+                  <hr />
+                  <div>
+                    <div className="d-flex">
+                      <p>小計</p>
+                      <p className="ms-auto">NT $ {finalTotal}</p>
+                    </div>
+                  </div>
+                  <button type="button" className="btn btn-primary w-100" onClick={nextStep}>前往結帳</button>
                 </div>
-                <div>
-                  <h3>結帳金額</h3>
-                  <div className="d-flex">
-                    <p>商品總金額</p>
-                    <p className="ms-auto">NT $ {finalTotal}</p>
-                  </div>
-                  <div className="d-flex">
-                    <p>折扣金額</p>
-                    <p className="ms-auto text-primary">NT $ 0</p>
-                  </div>
-                  <div className="d-flex">
-                    <p>優惠碼</p>
-                    <p className="ms-auto text-primary">NT $ 0</p>
-                  </div>
-                </div>
-                <hr />
-                <div>
-                  <div className="d-flex">
-                    <p>小計</p>
-                    <p className="ms-auto">NT $ {finalTotal}</p>
-                  </div>
-                </div>
-                <button type="button" className="btn btn-primary w-100" onClick={nextStep}>前往結帳</button>
               </div>
             </div>
           )
