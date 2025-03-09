@@ -4,10 +4,54 @@
 
 @import "bootstrap/scss/bootstrap";
 
-body{
+
+@font-face {
+  font-family: "GenSenRounded2 TW";
+  src: url("../../public/font/GenSenRounded2TW-R.otf") format("otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GenSenRounded2 TW";
+  src: url("../../public/font/GenSenRounded2TW-M.otf-m.otf") format("otf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  font-family: "GenSenRounded2 TW", sans-serif;
   background-color: $neutral-white;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.underline {
+  text-decoration: underline;
+}
+.search-bar {
+  box-sizing: border-box;
+  width: 360px;
+}
+.fill-icon {
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }
 
 .cart-card-shadow{
   filter: drop-shadow(0px 4px 80px rgba(178, 178, 178, 0.2));
 }
+
