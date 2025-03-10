@@ -13,7 +13,7 @@ const routes = [
         element: <Home />,
       },
       {
-        path: "products",
+        path: "product",
         element: <ProductPage />,
       },
       {
