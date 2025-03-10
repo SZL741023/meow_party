@@ -4,7 +4,6 @@
 
 @import "bootstrap/scss/bootstrap";
 
-
 @font-face {
   font-family: "GenSenRounded2 TW";
   src: url("../../public/font/GenSenRounded2TW-R.otf") format("otf");
@@ -51,7 +50,6 @@ a {
     "opsz" 24;
 }
 
-.cart-card-shadow{
+.cart-card-shadow {
   filter: drop-shadow(0px 4px 80px rgba(178, 178, 178, 0.2));
 }
-

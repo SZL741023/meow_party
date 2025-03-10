@@ -87,15 +87,17 @@ function Navbar() {
               <span className="material-symbols-rounded text-secondary p-2">
                 login
               </span>
-              <span
-                style={{
-                  fontVariationSettings:
-                    "'FILL' 1 ,'wght' 400, 'GRAD' 0, 'opsz' 24",
-                }}
-                className="material-symbols-rounded text-secondary fill-icon p-2"
-              >
-                shopping_cart
-              </span>
+              <Link className="nav-link" to="/Cart">
+                <span
+                  style={{
+                    fontVariationSettings:
+                      "'FILL' 1 ,'wght' 400, 'GRAD' 0, 'opsz' 24",
+                  }}
+                  className="material-symbols-rounded text-secondary fill-icon p-2"
+                >
+                  shopping_cart
+                </span>
+              </Link>
             </div>
           </div>
         </div>
