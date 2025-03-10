@@ -1,7 +1,13 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   const { data, status, error } = useSelector((state) => state.product);
+  const handleSeeMore = (product) => {
+    console.log(product);
+    navigate("/product", { state: product });
+  };
   return (
     <>
       <h1>This is home</h1>
