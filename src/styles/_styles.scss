@@ -4,17 +4,39 @@
 
 @import "bootstrap/scss/bootstrap";
 
+
 @font-face {
   font-family: "GenSenRounded2 TW";
-  src: url("../../public/font/GenSenRounded2TW-R.otf") format("otf");
+  src: url("/font/GenSenRounded2TW-L.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GenSenRounded2 TW";
+  src: url("/font/GenSenRounded2TW-R.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GenSenRounded2 TW";
-  src: url("../../public/font/GenSenRounded2TW-M.otf-m.otf") format("otf");
+  src: url("/font/GenSenRounded2TW-M.otf") format("opentype");
   font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GenSenRounded2 TW";
+  src: url("/font/GenSenRounded2TW-B.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GenSenRounded2 TW";
+  src: url("/font/GenSenRounded2TW-H.otf") format("opentype");
+  font-weight: 700;
   font-style: normal;
 }
 

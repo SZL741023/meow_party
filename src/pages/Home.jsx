@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Banner from "../components/Banner";
 
 function Home() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ function Home() {
   };
   return (
     <>
-      <h1>This is home</h1>
+      <Banner />
       {status === "loading" && <p>Loading</p>}
       {status === "successed" && (
         <table className="table align-middle">
