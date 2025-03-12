@@ -1,3 +1,37 @@
 .home-banner-section {
   height: 680px;
 }
+
+.home-banner-section::before {
+  content: "";
+  background-image: url(/images/top.svg);
+  background-repeat: repeat;
+  width: 100%;
+  height: 45px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.home-banner-section::after {
+  content: "";
+  background-image: url(/images/down.svg);
+  background-repeat: repeat;
+  width: 100%;
+  height: 45px;
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.home-banner-section .banner-topic-img {
+  top: 0;
+  right: 22%;
+}
+
+.home-banner-section h1 {
+  font-size: 56px;
+  font-weight: 700;
+}
