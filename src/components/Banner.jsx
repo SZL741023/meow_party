@@ -1,16 +1,18 @@
 import "../styles/component/_banner.scss";
 import BannerCat from "/images/cat.png";
-import TopDecorate from "./TopDecorate.jsx";
-import DownDecorate from "./DownDecorate.jsx";
+import Heart from "/images/love.png";
 const Banner = () => {
   return (
     <div className="container-fluid bg-primary-pestel home-banner-section py-12 d-flex position-relative">
-      <TopDecorate />
-      <DownDecorate />
       <div className="container m-auto">
         <div className="banner-section row align-items-center justify-content-between">
-          <div className="col">
-            <h1 className="fs-1 text-secondary">
+          <div className="col position-relative">
+            <img
+              className="banner-topic-img position-absolute"
+              src={Heart}
+              alt=""
+            />
+            <h1 className="text-secondary">
               精選好物
               <br />
               打造喵喵的專屬派對！
