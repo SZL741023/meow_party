@@ -60,7 +60,6 @@ function Home() {
           </tbody>
         </table>
       )}
-      <Footer></Footer>
     </>
   );
 }
