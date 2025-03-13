@@ -2,15 +2,17 @@ import Intro from "/images/introduction.png";
 import Dollars from "/images/dollars.png";
 import Gift from "/images/gift.png";
 import Cart from "/images/car.png";
+import "../styles/component/_introduction.scss";
+
 const Introduction = () => {
   return (
     <div className="container-fluid bg-neutral-white py-24 d-flex position-relative">
       <div className="container m-auto">
         <div className="row align-items-center justify-content-between">
-          <div className="col-4 intro-img">
+          <div className="col-4 intro-img position-relative">
             <img src={Intro} alt="" className="" />
           </div>
-          <div className="col-7 intro-word">
+          <div className="col-7 p-9 intro-word position-relative">
             <h3 className="text-secondary mb-6">
               來喵喵派對，為你的毛孩子挑選牠最愛的派對必備品，讓牠的生活每天都像過節一樣快樂吧！
             </h3>
