@@ -1,0 +1,35 @@
+.intro-img::before {
+  content: "";
+  background-image: url(/images/line2.png);
+  background-repeat: no-repeat;
+  width: 124px;
+  height: 90px;
+  display: block;
+  position: absolute;
+  top: -24px;
+  left: -64px;
+}
+
+.intro-img::after {
+  content: "";
+  background-image: url(/images/line6.png);
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 105px;
+  display: block;
+  position: absolute;
+  top: 116px;
+  right: -45px;
+}
+
+.intro-word::after {
+  content: "";
+  background-image: url(/images/line_rightdown.png);
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 80px;
+  display: block;
+  position: absolute;
+  right: 60px;
+  bottom: 12px;
+}
