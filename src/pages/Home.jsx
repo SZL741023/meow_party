@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Banner from "../components/Banner";
 import Introduction from "../components/Introduction";
 
+
 function Home() {
   const navigate = useNavigate();
   const { data, status, error } = useSelector((state) => state.product);
