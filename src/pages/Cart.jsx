@@ -70,7 +70,7 @@ function Cart(){
 
   const order = async(receiver, email, tel, address, invoice, payment, message) => {
     try {
-      await axios.post(`https://ec-course-api.hexschool.io/v2/api/meow_party/order`, {
+      const res = await axios.post(`https://ec-course-api.hexschool.io/v2/api/meow_party/order`, {
         "data": {
           "user": {
             "name": receiver,
@@ -83,7 +83,7 @@ function Cart(){
           "message": message
         }
       })
-      console.log('已送出訂單')
+      console.log(res.data.orderId)
       nextStep();
       
     } catch (error) {

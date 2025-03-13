@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Banner from "../components/Banner";
+import Footer from "../components/Footer";
 
 function Home() {
   const navigate = useNavigate();
@@ -59,6 +60,7 @@ function Home() {
           </tbody>
         </table>
       )}
+      <Footer></Footer>
     </>
   );
 }
