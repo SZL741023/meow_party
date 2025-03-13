@@ -31,9 +31,9 @@ function Footer() {
             </ul>
             <ul className="list-unstyled d-flex flex-column gap-4">
               <li className="text-secondary-light fs-7">聯絡我們</li>
-              <li><a href="#">營業時間：周一至周五 09:30-18:00</a></li>
-              <li><a href="#">客服電話：02-1234-5678</a></li>
-              <li><a href="#">E-mail：meowparty@meow.com</a></li>
+              <li>營業時間：周一至周五 09:30-18:00</li>
+              <li>客服電話：02-1234-5678</li>
+              <li>E-mail：meowparty@meow.com</li>
             </ul>
           </div>
           <div className="snsIcons">
