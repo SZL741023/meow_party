@@ -105,6 +105,24 @@ function Cart(){
     order(receiver, email, tel, address, invoice, payment, message)
   }
 
+  const [allProducts, setAllProducts] = useState([]);
+  const getProduct = async() => {
+    try {
+      const res = await axios.get(`https://ec-course-api.hexschool.io/v2/api/meow_party/products/all`);
+      console.log(res.data.products)
+
+      setAllProducts(res.data.products)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+  useEffect( ()=> {
+    getProduct()
+  },[])
+
   // const watchForm = useWatch({
   //   control
   // })
@@ -115,9 +133,9 @@ function Cart(){
 
   return (
     <>
-      <div className="container py-5">
+      <div className="container pt-21 pb-24">
         {/* 購物車步驟 */}
-        <div className="row justify-content-center mb-4">
+        <div className="row justify-content-center mb-21">
           <div className="col-md-6">
             <ul className="list-unstyled d-flex justify-content-between">
               <li className="d-flex align-items-center active">
@@ -148,7 +166,7 @@ function Cart(){
 
         {/* 確認購物車 */}
         {
-          step === 1 && (
+          step === 1 && (<>
             <div className="row cart-card-shadow">
               <div className="col-md-8">
                 <div className="d-flex flex-column gap-3">
@@ -224,7 +242,28 @@ function Cart(){
                 </div>
               </div>
             </div>
-          )
+            <hr className='border-bottom border-gray-200 my-20' />
+            <p className='text-secondary fs-6 mb-6'>您的喵喵或許還需要這些…</p>
+            <div className="row">
+              {allProducts.slice(0, 3).map(product => {
+                return (<>
+                  <div className="col-md-3">
+                    <div className="card">
+                      <div className='bg-white rounded-circle position-absolute d-flex align-center justify-center p-2 top-0 end-0 mt-4 me-4'>
+                        <span className="material-symbols-rounded text-secondary-light">favorite</span>
+                      </div>
+                      <img src={product.imageUrl} className='card-img-top object-fit-cover' height={230} />
+                      <div className="card-body">
+                        <h2 className="card-title fs-5 mb-2 text-secondary">{product.title}</h2>
+                        <p className='fs-5 text-gray-300 mb-3'>NT$ {product.price}</p>
+                        <a href="" className="btn btn-outline-secondary w-100">加入購物車</a>
+                      </div>
+                    </div>
+                  </div></>
+                )
+              })}
+            </div>
+          </>)
         }
 
         {/* 收件與付款資訊 */}
