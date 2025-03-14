@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Banner, Introduction, Category } from "./components";
+import { Banner, Introduction, Category, Article } from "./components";
 
 function Home() {
   const navigate = useNavigate();
@@ -61,6 +61,7 @@ function Home() {
           </tbody>
         </table>
       )}
+      <Article />
     </>
   );
 }

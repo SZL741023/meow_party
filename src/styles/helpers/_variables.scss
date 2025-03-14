@@ -374,7 +374,6 @@ $theme-colors: (
   "gray-200": $gray-200,
   "gray-300": $gray-300,
   "gray-400": $gray-400,
-
 ) !default;
 // 😻meow-party-end theme-colors-map
 
@@ -550,7 +549,7 @@ $body-emphasis-color: $black !default;
 // Style anchor elements.
 
 $link-color: $primary !default;
-$link-decoration: none;   //underline !default;
+$link-decoration: none; //underline !default;
 $link-shade-percentage: 20% !default;
 $link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
 $link-hover-decoration: null !default;
