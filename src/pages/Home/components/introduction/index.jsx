@@ -2,12 +2,12 @@ import Intro from "/images/introduction.png";
 import Dollars from "/images/dollars.png";
 import Gift from "/images/gift.png";
 import Cart from "/images/car.png";
-import "../styles/component/_introduction.scss";
+import "./style/_introduction.scss";
 
 const Introduction = () => {
   return (
     <div className="container-fluid bg-neutral-white py-24 d-flex position-relative">
-      <div className="container m-auto">
+      <div className="container">
         <div className="row align-items-center justify-content-between">
           <div className="col-4 intro-img position-relative">
             <img src={Intro} alt="" className="" />
