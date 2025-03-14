@@ -1,4 +1,4 @@
-import "../styles/component/_banner.scss";
+import "./style/_banner.scss";
 import BannerCat from "/images/cat.png";
 import Heart from "/images/love.png";
 const Banner = () => {

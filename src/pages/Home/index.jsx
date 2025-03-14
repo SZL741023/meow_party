@@ -1,8 +1,6 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Banner from "../components/Banner";
-import Introduction from "../components/Introduction";
-
+import { Banner, Introduction, Category } from "./components";
 
 function Home() {
   const navigate = useNavigate();
@@ -15,6 +13,7 @@ function Home() {
     <>
       <Banner />
       <Introduction />
+      <Category />
       {status === "loading" && <p>Loading</p>}
       {status === "successed" && (
         <table className="table align-middle">
