@@ -7,7 +7,7 @@ const Article = () => {
       <img src={Cat} className="article-cat-img z-1" alt="" />
       <div className="container pt-24 pb-25 text-center">
         <div className="article-topic-section mb-15">
-          <h3 className="fs-2 mb-3">喵喵文章專欄</h3>
+          <h3 className="fs-2 mb-3 text-secondary">喵喵文章專欄</h3>
           <img src={Line} alt="" />
         </div>
         <div className="row">
