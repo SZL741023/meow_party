@@ -1781,10 +1781,10 @@ $alert-color-scale: 40% !default; // Deprecated in v5.2.0, to be removed in v6
 // Progress bars
 
 // scss-docs-start progress-variables
-$progress-height: 1rem !default;
+$progress-height: 12px; // 1rem !default;
 $progress-font-size: $font-size-base * 0.75 !default;
 $progress-bg: var(--#{$prefix}secondary-bg) !default;
-$progress-border-radius: var(--#{$prefix}border-radius) !default;
+$progress-border-radius: 6px; // var(--#{$prefix}border-radius) !default;
 $progress-box-shadow: var(--#{$prefix}box-shadow-inset) !default;
 $progress-bar-color: $white !default;
 $progress-bar-bg: $primary !default;
