@@ -11,10 +11,9 @@ import {
 function Home() {
   const navigate = useNavigate();
   const { data, status, error } = useSelector((state) => state.product);
-  const handleSeeMore = (product) => {
-    console.log(product);
-    navigate("/product", { state: product });
-  };
+  // const handleSeeMore = (product) => {
+  //   navigate("/product", { state: product });
+  // };
   return (
     <>
       <Banner />

@@ -1,5 +1,5 @@
 import { createHashRouter } from "react-router-dom";
-import { Home, ProductPage, Cart, Test } from "../pages";
+import { Home, ProductPage, Cart, ProductsList } from "../pages";
 
 import App from "../App.jsx";
 
@@ -13,16 +13,16 @@ const routes = [
         element: <Home />,
       },
       {
+        path: "productslist",
+        element: <ProductsList />,
+      },
+      {
         path: "product",
         element: <ProductPage />,
       },
       {
         path: "cart",
         element: <Cart />,
-      },
-      {
-        path: "test",
-        element: <Test />,
       },
     ],
   },
