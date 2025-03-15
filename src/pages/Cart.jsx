@@ -2,6 +2,7 @@ import axios from 'axios';
 import { use, useEffect, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 
+import '../styles/_cart.scss'
 import Input from '../components/Input';
 
 function Cart(){
@@ -133,31 +134,31 @@ function Cart(){
 
   return (
     <>
-      <div className="container pt-21 pb-24">
+      <div className="container-md pt-5 pt-lg-21 pb-12 pb-lg-24">
         {/* 購物車步驟 */}
-        <div className="row justify-content-center mb-21">
-          <div className="col-md-6">
-            <ul className="list-unstyled d-flex justify-content-between">
+        <div className="row justify-content-center mb-9 mb-lg-21">
+          <div className="col-xl-6">
+            <ul className="list-unstyled d-flex justify-content-xl-between justify-content-center gap-xl-0 gap-6 mb-0">
               <li className="d-flex align-items-center active">
-                <span className="bg-secondary d-flex align-items-center justify-content-center rounded-circle text-white me-2" style={{width: '44px', height: '44px'}}>1</span>
+                <span className="bg-secondary d-flex align-items-center justify-content-center rounded-circle text-white me-2 flex-shrink-0" style={{width: '44px', height: '44px'}}>1</span>
                 <p className="mb-0 text-secondary">確認購物車</p>
               </li>
               {step >= 2 ? 
                 (<li className="d-flex align-items-center">
-                  <span className="bg-secondary d-flex align-items-center justify-content-center rounded-circle text-white me-2" style={{width: '44px', height: '44px'}}>2</span>
+                  <span className="bg-secondary d-flex align-items-center justify-content-center rounded-circle text-white me-2 flex-shrink-0" style={{width: '44px', height: '44px'}}>2</span>
                   <p className="mb-0 text-secondary">收件與付款資訊</p>
                 </li>) : 
                 (<li className="d-flex align-items-center">
-                <span className="bg-gray-200 d-flex align-items-center justify-content-center rounded-circle text-white me-2" style={{width: '44px', height: '44px'}}>2</span>
+                <span className="bg-gray-200 d-flex align-items-center justify-content-center rounded-circle text-white me-2 flex-shrink-0" style={{width: '44px', height: '44px'}}>2</span>
                 <p className="mb-0 text-gray-200">收件與付款資訊</p>
               </li>)}
               {step >= 3 ? 
                 (<li className="d-flex align-items-center">
-                  <span className="bg-secondary d-flex align-items-center justify-content-center rounded-circle text-white me-2" style={{width: '44px', height: '44px'}}>3</span>
+                  <span className="bg-secondary d-flex align-items-center justify-content-center rounded-circle text-white me-2 flex-shrink-0" style={{width: '44px', height: '44px'}}>3</span>
                   <p className="mb-0 text-secondary">完成訂購</p>
                 </li>) : 
                 (<li className="d-flex align-items-center">
-                <span className="bg-gray-200 d-flex align-items-center justify-content-center rounded-circle text-white me-2" style={{width: '44px', height: '44px'}}>3</span>
+                <span className="bg-gray-200 d-flex align-items-center justify-content-center rounded-circle text-white me-2 flex-shrink-0" style={{width: '44px', height: '44px'}}>3</span>
                 <p className="mb-0 text-gray-200">完成訂購</p>
               </li>)}
             </ul>
@@ -168,48 +169,56 @@ function Cart(){
         {
           step === 1 && (<>
             <div className="row cart-card-shadow">
-              <div className="col-md-8">
+              <div className="col-xl-8 mb-3 mb-xl-0">
                 <div className="d-flex flex-column gap-3">
                   <div className="cart-check px-4 py-3 rounded-2 bg-white">
                     <div className="form-check">
-                      <input className="form-check-input" type="checkbox" id="checkAll" defaultChecked/>
+                      <input className="form-check-input me-4" type="checkbox" id="checkAll" defaultChecked/>
                       <label className="form-check-label" htmlFor="checkAll">全選</label>
                     </div>
                   </div>
                   {/* 商品卡片 */}
                   {cartProducts.map(item => {
                     return (
-                      <div className="cart-item d-flex bg-white align-items-center gap-4 p-4 rounded-4" key={item.product.id}>
-                        <div className="form-check">
-                          <input className="form-check-input" type="checkbox" defaultChecked/>
+                      <div className="cart-item d-flex bg-white align-items-center justify-content-between gap-6 p-4 rounded-4 flex-wrap flex-md-nowrap" key={item.product.id}>
+
+                        <div className="d-flex align-items-center gap-6 flex-grow-1">
+                          <div className="form-check">
+                            <input className="form-check-input" type="checkbox" defaultChecked/>
+                          </div>
+                          <img className="cart-item-img rounded object-fit-cover" src={item.product.imageUrl} alt={item.product.title} />
+                          <div className='flex-grow-1'>
+                            <h3 className="fs-6 fw-bold text-secondary">{item.product.title}</h3>
+                            <select className="form-select" aria-label="Default select example">
+                              <option value="1">組合三件組</option>
+                              <option value="2">選項一</option>
+                              <option value="3">選項二</option>
+                            </select>
+                          </div>
+                          <div style={{width: '80px'}}>
+                            <p className="text-primary mb-0">NT$ {item.product.price}</p>
+                            <p className="text-gray-300 mb-0" style={{letterSpacing: '0'}}><del>NT$ {item.product.origin_price}</del></p>
+                          </div>
                         </div>
-                        <img width={160} height={120} className="rounded object-fit-cover" src={item.product.imageUrl} alt={item.product.title} />
-                        <div style={{width:'238px'}}>
-                          <h3 className="fs-6 fw-bold text-secondary">{item.product.title}</h3>
-                          <select className="form-select" aria-label="Default select example">
-                            <option value="1">組合三件組</option>
-                            <option value="2">選項一</option>
-                            <option value="3">選項二</option>
-                          </select>
-                        </div>
-                        <div>
-                          <p className="text-primary mb-0">NT$ {item.product.price}</p>
-                          <p className="text-gray-300 mb-0"><del>NT$ {item.product.origin_price}</del></p>
-                        </div>
-                        <div className="input-group" style={{width: '137px', height: '48px'}}>
-                          <button className="btn bg-gray-100 rounded-start-circle d-flex align-items-center" type="button" onClick={()=> updateQty(item.id,item.product.id, item.qty - 1)}><span className="material-symbols-rounded">remove</span></button>
-                          <input type="text" className="form-control text-center bg-gray-100 border-0" placeholder={item.qty} readOnly />
-                          <button className="btn bg-gray-100 rounded-end-circle d-flex align-items-center" type="button" onClick={()=> updateQty(item.id,item.product.id, item.qty + 1)}><span className="material-symbols-rounded">add</span></button>
-                        </div>
-                        <div className="remove-item">
-                          <span className="material-symbols-rounded curser" role="button" onClick={()=> deleteCartItem(item.id)}>delete</span>
+
+                        <div className="d-flex align-items-center gap-4 cart-item-qtyDel">
+                          {/* 數量按鈕 */}
+                          <div className="cart-qty-group d-flex flex-nowrap flex-shrink-0 flex-grow-1">
+                            <button className="btn bg-gray-100 rounded-0 rounded-start-circle d-flex align-items-center" type="button" onClick={()=> updateQty(item.id,item.product.id, item.qty - 1)}><span className="material-symbols-rounded">remove</span></button>
+                            <input type="text" className="form-control text-center bg-gray-100 border-0 rounded-0" placeholder={item.qty} readOnly />
+                            <button className="btn bg-gray-100 rounded-0 rounded-end-circle d-flex align-items-center" type="button" onClick={()=> updateQty(item.id,item.product.id, item.qty + 1)}><span className="material-symbols-rounded">add</span></button>
+                          </div>
+                          {/* 刪除按鈕 */}
+                          <div className="remove-item">
+                            <span className="material-symbols-rounded" role="button" onClick={()=> deleteCartItem(item.id)}>delete</span>
+                          </div>
                         </div>
                       </div>
                     )
                   })}
                 </div>
               </div>
-              <div className="col-md-4">
+              <div className="col-xl-4">
                 <div className="cart-cart-shadow p-6 bg-white rounded-4">
                   <div className="mb-8">
                     <label htmlFor="exampleFormControlInput1" className="form-label">優惠碼</label>
@@ -218,38 +227,38 @@ function Cart(){
                   </div>
                   <div>
                     <h3 className="fs-6 fw-bold text-secondary mb-4">結帳金額</h3>
-                    <div className="d-flex">
-                      <p>商品總金額</p>
-                      <p className="ms-auto">NT $ {finalTotal}</p>
-                    </div>
-                    <div className="d-flex">
-                      <p>折扣金額</p>
-                      <p className="ms-auto text-primary">NT $ 0</p>
-                    </div>
-                    <div className="d-flex">
-                      <p>優惠碼</p>
-                      <p className="ms-auto text-primary">NT $ 0</p>
+                    <div className="d-flex flex-column gap-2">
+                      <div className="d-flex">
+                        <p className='text-gray-300'>商品總金額</p>
+                        <p className="ms-auto text-secondary">NT $ {finalTotal}</p>
+                      </div>
+                      <div className="d-flex">
+                        <p className='text-gray-300'>折扣金額</p>
+                        <p className="ms-auto text-primary">NT $ 0</p>
+                      </div>
+                      <div className="d-flex">
+                        <p className='text-gray-300'>優惠碼</p>
+                        <p className="ms-auto text-primary">NT $ 0</p>
+                      </div>
                     </div>
                   </div>
-                  <hr />
-                  <div>
-                    <div className="d-flex">
-                      <p>小計</p>
-                      <p className="ms-auto">NT $ {finalTotal}</p>
-                    </div>
+                  <hr className='border-bottom border-gray-200 my-6 border-dashed' />
+                  <div className="d-flex mb-5">
+                    <p className='text-gray-300'>小計</p>
+                    <p className="ms-auto text-secondary fs-6">NT $ {finalTotal}</p>
                   </div>
                   <button type="button" className="btn btn-primary w-100" onClick={nextStep}>前往結帳</button>
                 </div>
               </div>
             </div>
-            <hr className='border-bottom border-gray-200 my-20' />
+            <hr className='border-bottom border-gray-200 my-20 border-dashed' />
             <p className='text-secondary fs-6 mb-6'>您的喵喵或許還需要這些…</p>
-            <div className="row">
+            <div className="row gap-6 gap-sm-0">
               {allProducts.slice(0, 3).map(product => {
-                return (<>
-                  <div className="col-md-3">
+                return (
+                  <div className="col-sm-4 col-lg-3" key={product.id}>
                     <div className="card">
-                      <div className='bg-white rounded-circle position-absolute d-flex align-center justify-center p-2 top-0 end-0 mt-4 me-4'>
+                      <div className='bg-white rounded-circle position-absolute d-flex align-items-center justify-center p-2 top-0 end-0 mt-4 me-4'>
                         <span className="material-symbols-rounded text-secondary-light">favorite</span>
                       </div>
                       <img src={product.imageUrl} className='card-img-top object-fit-cover' height={230} />
@@ -259,7 +268,7 @@ function Cart(){
                         <a href="" className="btn btn-outline-secondary w-100">加入購物車</a>
                       </div>
                     </div>
-                  </div></>
+                  </div>
                 )
               })}
             </div>
@@ -273,7 +282,7 @@ function Cart(){
               <div className="col-md-6">
                 <form action="" className="mb-5" onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-10">
-                    <h2 className="fs-5 fw-bold text-secondary">收件人資訊</h2>
+                    <h2 className="fs-5 fw-bold text-secondary mb-6">收件與付款資訊</h2>
                     <Input
                       register={register}
                       errors={errors}
@@ -363,8 +372,8 @@ function Cart(){
                     </div>
                   </div>
                   <div className="d-flex align-items-center justify-content-center gap-3">
-                    {/* <button type="button" className="btn btn-outline-secondary" onClick={prevStep}>上一步</button> */}
-                    <button type="submit" className="btn btn-primary w-100">確認結帳</button>
+                    <button type="button" className="btn btn-outline-secondary" onClick={prevStep}>繼續選購</button>
+                    <button type="submit" className="btn btn-primary">確認結帳</button>
                   </div>
                 </form>
               </div>
