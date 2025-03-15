@@ -258,7 +258,7 @@ function Cart(){
                 return (
                   <div className="col-sm-4 col-lg-3" key={product.id}>
                     <div className="card">
-                      <div className='bg-white rounded-circle position-absolute d-flex align-items-center justify-center p-2 top-0 end-0 mt-4 me-4'>
+                      <div className='bg-white rounded-circle position-absolute d-flex align-items-center justify-center p-2 top-0 end-0 mt-4 me-4' role='button'>
                         <span className="material-symbols-rounded text-secondary-light">favorite</span>
                       </div>
                       <img src={product.imageUrl} className='card-img-top object-fit-cover' height={230} />
