@@ -134,11 +134,6 @@ function Cart(){
 
   return (
     <>
-      <div className="container pt-21 pb-24">
-        {/* 購物車步驟 */}
-        <div className="row justify-content-center mb-21">
-          <div className="col-md-6">
-            <ul className="list-unstyled d-flex justify-content-between">
       <div className="container-md pt-5 pt-lg-21 pb-12 pb-lg-24">
         {/* 購物車步驟 */}
         <div className="row justify-content-center mb-9 mb-lg-21">
@@ -256,14 +251,6 @@ function Cart(){
                 </div>
               </div>
             </div>
-            <hr className='border-bottom border-gray-200 my-20' />
-            <p className='text-secondary fs-6 mb-6'>您的喵喵或許還需要這些…</p>
-            <div className="row">
-              {allProducts.slice(0, 3).map(product => {
-                return (<>
-                  <div className="col-md-3">
-                    <div className="card">
-                      <div className='bg-white rounded-circle position-absolute d-flex align-center justify-center p-2 top-0 end-0 mt-4 me-4'>
             <hr className='border-bottom border-gray-200 my-20 border-dashed' />
             <p className='text-secondary fs-6 mb-6'>您的喵喵或許還需要這些…</p>
             <div className="row gap-6 gap-sm-0">
@@ -281,7 +268,6 @@ function Cart(){
                         <a href="" className="btn btn-outline-secondary w-100">加入購物車</a>
                       </div>
                     </div>
-                  </div></>
                   </div>
                 )
               })}
