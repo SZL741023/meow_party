@@ -1,6 +1,6 @@
 import Home from "./Home/index.jsx";
+import ProductsList from "./ProductList/index.jsx";
 import ProductPage from "./ProductPage.jsx";
 import Cart from "./Cart.jsx";
-import Test from "./Test";
 
-export { Home, ProductPage, Cart, Test };
+export { Home, ProductsList, ProductPage, Cart };
