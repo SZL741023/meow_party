@@ -1,10 +1,38 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Line, Bubble } from "../article/images";
 import { ThreeLines } from "./images";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./style/_productionSection.scss";
 
+const API_BASE = import.meta.env.VITE_API_BASEURL;
+const API_PATH = import.meta.env.VITE_API_PATH;
+
 const ProductSection = ({ data }) => {
+  // 新增購物車
+  const [addProduct, setAddProduct] = useState({
+    data: {
+      product_id: "",
+      qty: 1,
+    },
+  });
+  const addProductToCar = async (product) => {
+    const newAddProduct = {
+      data: {
+        ...addProduct.data,
+        product_id: product.id,
+      },
+    };
+    try {
+      const response = await axios.post(
+        `${API_BASE}/api/${API_PATH}/cart`,
+        newAddProduct,
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="container-fluid py-24 position-relative">
       <img src={Bubble} className="product-section-bubble" alt="" />
@@ -46,7 +74,6 @@ const ProductSection = ({ data }) => {
                       src={product.imageUrl}
                       className="card-img-top object-fit-cover"
                       height={230}
-                      onClick={() => seeProductDetial(product)}
                     />
                   </Link>
                   <div className="card-body d-flex flex-column">
@@ -59,7 +86,12 @@ const ProductSection = ({ data }) => {
                     <p className="text-secondary mb-3 fs-6">
                       {product.description}
                     </p>
-                    <button className="btn btn-outline-secondary w-100 mt-auto">
+                    <button
+                      onClick={() => {
+                        addProductToCar(product);
+                      }}
+                      className="btn btn-outline-secondary w-100 mt-auto"
+                    >
                       加入購物車
                     </button>
                   </div>

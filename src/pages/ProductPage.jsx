@@ -1,9 +1,37 @@
 import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import { useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/_product.scss";
 
+const API_BASE = import.meta.env.VITE_API_BASEURL;
+const API_PATH = import.meta.env.VITE_API_PATH;
+
 function ProductPage() {
+  // 新增購物車
+  const [addProduct, setAddProduct] = useState({
+    data: {
+      product_id: "",
+      qty: 1,
+    },
+  });
+  const addProductToCar = async (product) => {
+    const newAddProduct = {
+      data: {
+        ...addProduct.data,
+        product_id: product.id,
+      },
+    };
+    try {
+      const response = await axios.post(
+        `${API_BASE}/api/${API_PATH}/cart`,
+        newAddProduct,
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const location = useLocation();
   const productData = location.state || {};
   const [quantity, setQuantity] = useState(1);
@@ -126,7 +154,13 @@ function ProductPage() {
               </div>
             </div>
 
-            <button type="button" className="btn btn-primary w-100 text-white">
+            <button
+              onClick={() => {
+                addProductToCar(productData);
+              }}
+              type="button"
+              className="btn btn-primary w-100 text-white"
+            >
               加入購物車
             </button>
           </div>

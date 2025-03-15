@@ -1,8 +1,37 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { Line } from "../Home/components/article/images";
+
+const API_BASE = import.meta.env.VITE_API_BASEURL;
+const API_PATH = import.meta.env.VITE_API_PATH;
+
 const ProductsList = () => {
+  // 新增購物車
+  const [addProduct, setAddProduct] = useState({
+    data: {
+      product_id: "",
+      qty: 1,
+    },
+  });
+  const addProductToCar = async (product) => {
+    const newAddProduct = {
+      data: {
+        ...addProduct.data,
+        product_id: product.id,
+      },
+    };
+    try {
+      const response = await axios.post(
+        `${API_BASE}/api/${API_PATH}/cart`,
+        newAddProduct,
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const location = useLocation();
   const productsData = location.state;
   const navigate = useNavigate();
@@ -52,7 +81,12 @@ const ProductsList = () => {
                     <p className="text-secondary mb-3 fs-6">
                       {product.description}
                     </p>
-                    <button className="btn btn-outline-secondary w-100 mt-auto">
+                    <button
+                      onClick={() => {
+                        addProductToCar(product);
+                      }}
+                      className="btn btn-outline-secondary w-100 mt-auto"
+                    >
                       加入購物車
                     </button>
                   </div>
