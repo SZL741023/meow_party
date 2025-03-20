@@ -11,7 +11,7 @@ import {
 } from "./images/";
 const Category = () => {
   return (
-    <div className="container-fluid home-category py-20">
+    <div className="container-fluid home-category py-12 py-lg-20">
       <div className="container">
         <div className="row">
           <div className="col">

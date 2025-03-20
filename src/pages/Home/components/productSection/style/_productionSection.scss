@@ -1,11 +1,19 @@
 .product-section-bubble {
   position: absolute;
-  left: 3rem;
-  top: 10rem;
+  display: none;
+  @media (min-width: 1400px) {
+    display: block;
+  }
+  left: -16.5rem;
+  top: 2.5rem;
 }
 
 .product-section-threeline {
   position: absolute;
-  right: 12.5rem;
-  top: 28.75rem;
+  display: none;
+  @media (min-width: 1400px) {
+    display: block;
+  }
+  right: -7rem;
+  top: 21.25rem;
 }

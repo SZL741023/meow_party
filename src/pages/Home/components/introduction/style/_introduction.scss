@@ -28,7 +28,10 @@
   background-repeat: no-repeat;
   width: 80px;
   height: 80px;
-  display: block;
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+  }
   position: absolute;
   right: 60px;
   bottom: 12px;

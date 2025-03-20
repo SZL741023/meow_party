@@ -32,7 +32,7 @@ function Product() {
   return (
     <>
       <div className="container mt-5">
-        <div className="row">
+        <div className="row gap-6">
           <div className="col-md-6">
             <img
               src={productImage1}
