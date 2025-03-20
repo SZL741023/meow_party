@@ -34,10 +34,14 @@ const ProductSection = ({ data }) => {
     }
   };
   return (
-    <div className="container-fluid py-24 position-relative">
-      <img src={Bubble} className="product-section-bubble" alt="" />
-      <img src={ThreeLines} className="product-section-threeline z-1" alt="" />
+    <div className="container-fluid py-12 py-lg-24">
       <div className="container position-relative">
+        <img src={Bubble} className="product-section-bubble" alt="" />
+        <img
+          src={ThreeLines}
+          className="product-section-threeline z-1"
+          alt=""
+        />
         <div className="product-topic-section mb-15 text-center">
           <h3 className="cat-canned-food fs-2 mb-3 text-secondary">
             喵喵產品系列
@@ -59,7 +63,10 @@ const ProductSection = ({ data }) => {
         <div className="row gap-6 gap-sm-0 align-items-stretch">
           {data.slice(0, 4).map((product) => {
             return (
-              <div className="col-sm-4 col-lg-3" key={product.id}>
+              <div
+                className="col-12 col-md-6 col-lg-4 col-xl-3"
+                key={product.id}
+              >
                 <div className="card h-100">
                   <div
                     className="bg-white rounded-circle position-absolute d-flex align-items-center justify-center p-2 top-0 end-0 mt-4 me-4"

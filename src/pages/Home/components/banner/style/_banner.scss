@@ -1,7 +1,10 @@
-.home-banner-section {
-  height: 680px;
+.home-banner-section h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  @media (min-width: 992px) {
+    font-size: 3.5rem;
+  }
 }
-
 .home-banner-section::before {
   content: "";
   background-image: url(/images/top.svg);
@@ -29,9 +32,4 @@
 .home-banner-section .banner-topic-img {
   top: 0;
   right: 22%;
-}
-
-.home-banner-section h1 {
-  font-size: 56px;
-  font-weight: 700;
 }
