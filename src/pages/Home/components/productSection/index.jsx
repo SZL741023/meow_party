@@ -60,7 +60,7 @@ const ProductSection = ({ data }) => {
             </span>
           </Link>
         </div>
-        <div className="row gap-6 gap-sm-0 align-items-stretch">
+        <div className="row row-gap-6 align-items-stretch">
           {data.slice(0, 4).map((product) => {
             return (
               <div

@@ -9,7 +9,7 @@ const Article = () => {
           <h3 className="fs-2 mb-3 text-secondary">喵喵文章專欄</h3>
           <img src={Line} alt="" />
         </div>
-        <div className="row gap-6">
+        <div className="row row-gap-6">
           <div className="col-12 col-lg-4">
             <div className="card border-0 article-card rounded-4 py-9">
               <div className="card-body">

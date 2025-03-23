@@ -2,6 +2,7 @@ import { createHashRouter } from "react-router-dom";
 import { Home, ProductPage, Cart, ProductsList } from "../pages";
 
 import App from "../App.jsx";
+import MobileSearchBar from "../components/MobileSearchBar.jsx";
 
 const routes = [
   {
@@ -23,6 +24,10 @@ const routes = [
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "temp",
+        element: <MobileSearchBar />,
       },
     ],
   },
