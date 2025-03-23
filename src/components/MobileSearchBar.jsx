@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../styles/_styles.scss";
 const MobileSearchBar = () => {
   return (
-    <div className="container-fluid p-6 bg-primary-pestel vh-100">
+    <div className="container-fluid p-6 bg-primary-pestel vh-100 d-block d-lg-none">
       <div className=" d-block d-lg-none position-relative">
         <span className="top-50 ms-4 material-symbols-rounded position-absolute translate-middle-y text-gray-400">
           search
