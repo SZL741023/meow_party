@@ -13,12 +13,46 @@ const MobileSearchBar = () => {
           placeholder="搜尋產品"
         />
       </div>
-      <div className="row flex-column mt-6 gap-2">
-        <div className="col py-2">最新消息</div>
-        <div className="col py-2">喵喵好物</div>
-        <div className="col py-2">新手組合</div>
-        <div className="col py-2">喵喵專欄</div>
-        <div className="col py-2">常見問題</div>
+      <div className="row flex-column my-6 gap-2">
+        <div className="col">
+          <div className="py-2 border-bottom fw-medium">
+            <Link>最新消息</Link>
+          </div>
+        </div>
+        <div className="col">
+          <div className="py-2 border-bottom fw-medium">
+            <Link>喵喵好物</Link>
+          </div>
+        </div>
+        <div className="col">
+          <div className="py-2 border-bottom fw-medium">
+            <Link>新手組合</Link>
+          </div>
+        </div>
+        <div className="col">
+          <div className="py-2 border-bottom fw-medium">
+            <Link>喵喵專欄</Link>
+          </div>
+        </div>
+        <div className="col">
+          <div className="py-2 border-bottom fw-medium">
+            <Link>常見問題</Link>
+          </div>
+        </div>
+      </div>
+      <div className="d-grid gap-4">
+        <button
+          className="btn btn-primary py-3 text-neutral-white"
+          type="button"
+        >
+          登入/註冊
+        </button>
+        <button
+          className="btn btn-primary py-3 text-neutral-white"
+          type="button"
+        >
+          我的購物車
+        </button>
       </div>
     </div>
   );
