@@ -4,6 +4,10 @@
 
 .article-bubble-img {
   position: absolute;
+  display: none;
+  @media (min-width: 992px) {
+    display: block;
+  }
   right: 3rem;
   top: -9rem;
 }
