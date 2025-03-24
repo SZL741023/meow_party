@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/_styles.scss";
 const MobileSearchBar = () => {
+  const navigate = useNavigate();
+
+  const handleGotoCart = () => {
+    navigate("/cart");
+  };
   return (
     <div className="container-fluid p-6 bg-primary-pestel vh-100 d-block d-lg-none">
       <div className=" d-block d-lg-none position-relative">
@@ -50,6 +55,7 @@ const MobileSearchBar = () => {
         <button
           className="btn btn-primary py-3 text-neutral-white"
           type="button"
+          onClick={handleGotoCart}
         >
           我的購物車
         </button>

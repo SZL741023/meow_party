@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getProductsDataAsync } from "../slice/productSlice";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import Logo from "/images/logo.svg";
 import SearchBar from "./SearchBar";
 import MobileSearchBar from "./MobileSearchBar";
@@ -9,6 +11,7 @@ function Navbar() {
   const dispatch = useDispatch();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileSearchBarOpen, setIsMobileSearchBarOpen] = useState(false);
+  const [cartProducts, setCartProducts] = useState([]);
 
   const openSearchBar = () => {
     setIsSearchOpen(true);
@@ -21,7 +24,22 @@ function Navbar() {
     setIsMobileSearchBarOpen(!isMobileSearchBarOpen);
   };
 
+  const getCartList = async () => {
+    try {
+      const res = await axios.get(
+        "https://ec-course-api.hexschool.io/v2/api/meow_party/cart",
+      );
+      console.log(res.data.data);
+      const cartList = res.data.data.carts;
+      setCartProducts(cartList);
+    } catch (error) {
+      console.log(error);
+      alert("取得購物車列表失敗!");
+    }
+  };
+
   useEffect(() => {
+    getCartList();
     dispatch(getProductsDataAsync());
   }, []);
   return (
@@ -109,9 +127,13 @@ function Navbar() {
                 >
                   login
                 </span>
-                <Link className="nav-link" to="/Cart">
+                <Link className="nav-link position-relative" to="/Cart">
                   <span className="material-symbols-rounded text-secondary fill-icon p-2">
                     shopping_cart
+                  </span>
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {cartProducts.length}
+                    <span className="visually-hidden">unread messages</span>
                   </span>
                 </Link>
               </div>
