@@ -2,13 +2,17 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Line, Bubble } from "../article/images";
 import { ThreeLines } from "./images";
+import { useDispatch } from "react-redux";
+import { showAlert } from "../../../../slice/cartMessageSlice";
+
 import axios from "axios";
 import "./style/_productionSection.scss";
 
 const API_BASE = import.meta.env.VITE_API_BASEURL;
 const API_PATH = import.meta.env.VITE_API_PATH;
 
-const ProductSection = ({ data }) => {
+const ProductSection = ({ productData }) => {
+  const dispatch = useDispatch();
   // 新增購物車
   const [addProduct, setAddProduct] = useState({
     data: {
@@ -29,6 +33,14 @@ const ProductSection = ({ data }) => {
         newAddProduct,
       );
       console.log(response.data);
+      const { message, data } = response.data;
+      dispatch(
+        showAlert({
+          title: message,
+          text: `${data.product.title} 已加入購物車.`,
+          icon: "success",
+        }),
+      );
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +64,7 @@ const ProductSection = ({ data }) => {
           <Link
             className="d-flex align-items-center"
             to="/productslist"
-            state={data}
+            state={productData}
           >
             看更多
             <span className="material-symbols-rounded align-center">
@@ -61,7 +73,7 @@ const ProductSection = ({ data }) => {
           </Link>
         </div>
         <div className="row row-gap-6 align-items-stretch">
-          {data.slice(0, 4).map((product) => {
+          {productData.slice(0, 4).map((product) => {
             return (
               <div
                 className="col-12 col-md-6 col-lg-4 col-xl-3"

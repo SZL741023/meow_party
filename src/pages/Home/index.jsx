@@ -19,7 +19,7 @@ function Home() {
       <Banner />
       <Introduction />
       <Category />
-      <ProductSection data={data} />
+      <ProductSection productData={data} />
       <Article />
     </>
   );

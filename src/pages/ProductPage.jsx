@@ -28,6 +28,8 @@ function ProductPage() {
         newAddProduct,
       );
       console.log(response.data);
+      const { message, title } = response.data;
+      console.log(`test: ${message} , ${title}`);
     } catch (error) {
       console.log(error);
     }
