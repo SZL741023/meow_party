@@ -50,15 +50,6 @@ function Navbar() {
             <Link className="text-decoration-none me-12" to={"/"}>
               <img src={Logo} alt="logo" />
             </Link>
-            {/* <button */}
-            {/*   className="navbar-toggler" */}
-            {/*   type="button" */}
-            {/*   data-bs-toggle="collapse" */}
-            {/*   data-bs-target="#navbarNav" */}
-            {/*   aria-controls="navbarNav" */}
-            {/*   aria-expanded="false" */}
-            {/*   aria-label="Toggle navigation" */}
-            {/* > */}
             <button
               className="navbar-toggler"
               onClick={() => toggleMobileSearchBar()}
